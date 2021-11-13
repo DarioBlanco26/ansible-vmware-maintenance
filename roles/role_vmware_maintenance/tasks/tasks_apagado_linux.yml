@@ -1,0 +1,14 @@
+---
+- name: lanzar comandos de apagados en la consola linux
+  shell: 'shutdown -h now'
+  async: 1
+  poll: 0
+  ignore_errors: true
+
+- name: validar que el servidor se encuentre apagado
+  wait_for:
+    host: '{{ ansible_host }}'
+    port: 22
+    state: stopped
+  delegate_to: localhost
+

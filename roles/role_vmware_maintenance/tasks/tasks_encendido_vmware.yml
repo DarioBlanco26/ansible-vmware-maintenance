@@ -1,0 +1,10 @@
+---
+- name: lanzar encendido de vm
+  vmware_guest_powerstate:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ username }}@{{ vmware_nw_domain }}'
+    password: '{{ password }}'
+    validate_certs: False
+    state: powered-on
+    name: '{{ inventory_hostname }}'
+  delegate_to: localhost 

@@ -1,0 +1,22 @@
+############## VMWARE #####################
+[vmhost]
+
+
+[vm]
+
+
+############# LINUX ######################
+[console:children]
+linux
+
+[linux:children]
+linux_server
+
+[linux_server]
+TEST-RHEL-DUMMY-LAB01 ansible_host=tl-dummy-lab01
+TEST-RHEL-DUMMY-LAB02 ansible_host=tl-dummy-lab02
+
+############### WINDOWS ###################
+
+
+

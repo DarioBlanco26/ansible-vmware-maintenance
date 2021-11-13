@@ -1,0 +1,10 @@
+---
+- name: lanzar apagado de vm
+  vmware_guest_powerstate:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ username }}@{{ vmware_nw_domain }}'
+    password: '{{ password }}'
+    validate_certs: False
+    state: powered-off
+    name: '{{ inventory_hostname }}'
+  delegate_to: localhost

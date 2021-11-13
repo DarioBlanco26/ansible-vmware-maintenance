@@ -1,0 +1,18 @@
+---
+# tasks file for role_vmware_maintenance
+- name: lanzar tarea en consola linux
+  include_tasks: tasks_apagado_linux.yml
+  when: 
+    - "'linux' in group_names"
+    - "state == 'off'"
+
+- name: lanzar tarea en vcenter vmware apagado
+  include_tasks: tasks_apagado_vmware.yml
+  when:
+    - "'vm' in group_names"
+    - "state == 'off'"
+
+- name: lanzar tarea en vcenter vmware encendido
+  include_tasks: tasks_encendido_vmware.yml
+  when: 
+    - "state == 'on'"

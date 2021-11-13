@@ -1,0 +1,16 @@
+---
+- name: Procedimiento de mantenimiento VMWARE
+  hosts: all
+  gather_facts: no
+  vars:
+    - vcenter_hostname: 'vcenter_hostname'
+    - vmware_nw_domain: 'vmware_nw_domain'
+  vars_prompt:
+    - name: username
+      prompt: 'Ingresar usuario de dominio'
+      private: no
+    - name: password
+      prompt: 'Ingresar contraseña'
+      private: yes
+  roles:
+    - roles/role_vmware_maintenance
